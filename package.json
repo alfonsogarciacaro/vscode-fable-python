@@ -1,0 +1,53 @@
+{
+  "name": "vscode-fable-python",
+  "displayName": "Fable Python",
+  "description": "Run F# in Python Interactive with Fable",
+  "icon": "fsharp.png",
+  "version": "1.0.0-beta-001",
+  "publisher": "alfonsogarciacaro",  
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/alfonsogarciacaro/vscode-fable-python.git"
+  },
+  "bugs": {
+      "url": "https://github.com/alfonsogarciacaro/vscode-fable-python/issues"
+  },
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+  "categories": [
+    "Other"
+  ],
+	"activationEvents": [
+    "onCommand:fablePython.runcurrentcell",
+    "onCommand:fablePython.resetimports"
+	],  
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fablePython.runcurrentcell",
+        "title": "Fable Python: Run Current Cell",
+        "when": "editorLangId == fsharp"
+      },
+      {
+        "command": "fablePython.resetimports",
+        "title": "Fable Python: Reset Imports",
+        "when": "editorLangId == fsharp"
+      }
+    ]
+  },
+	"scripts": {
+    "compile": "tsc -b",
+		"watch": "tsc -b -w",
+    "prepack": "npm run compile",
+    "pack": "vsce package"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+    "@types/node": "^16.7.13",
+		"@types/vscode": "^1.43.0",
+    "typescript": "^4.2.2"
+	}
+}
